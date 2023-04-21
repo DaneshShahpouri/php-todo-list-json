@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List Json</title>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div class="container">
+
+            <div class="todolist-wrapper">
+                <h1>ToDo List</h1>
+
+                <!-- TodoList -->
+                <ul class="todolist">
+
+                    <li v-for="(el, index) in list" class="elList">
+                        <span :class="el.isDone==true ? 'done' : ''" @click="toggleDone(index)">
+                            {{ list[index].name}}
+                        </span>
+                        <i class="fa-solid fa-trash-can" @click="deleteEl(index)"></i>
+                    </li>
+
+                </ul>
+                <!-- TodoList -->
+
+                <div class="input-wrapper">
+                    <input type="text" class="addEl" v-model="newEl">
+                    <input type="submit">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
